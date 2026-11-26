@@ -97,6 +97,18 @@ bind(vars.kbSleep, hl.dsp.exec_cmd(vars.sleepCmd), locked)
 -- Text to speech
 bind(vars.kbReadSelection, hl.dsp.exec_cmd("~/.config/hypr/scripts/tts-selection.sh"))
 
+-- Screenshots: the key copies to the clipboard, SHIFT + the key also saves to screenshotDir
+local function screenshot(key, mode)
+  local cmd = "hyprshot --silent " .. mode
+  bind(key, hl.dsp.exec_cmd(cmd .. " --clipboard-only"))
+  bind("SHIFT + " .. key, hl.dsp.exec_cmd(
+    cmd .. " -o " .. vars.screenshotDir .. " -f \"Screenshot $(date +'%Y-%m-%d %H:%M:%S').png\""
+  ))
+end
+screenshot(vars.kbScreenshotRegion, "-z -m region")
+screenshot(vars.kbScreenshotWindow, "-m window -m active")
+screenshot(vars.kbScreenshotMonitor, "-m output -m active")
+
 
 local zoomBy = require("modules.zoom").zoomBy
 local swapMonitors = require("modules.swap").swapMonitors

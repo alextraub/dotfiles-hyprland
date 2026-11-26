@@ -49,11 +49,12 @@ NO_AT_BRIDGE=1 yay -S --removemake sweet-cursors-git   # long Inkscape build, se
 | qt5-wayland, qt6-wayland | `QT_QPA_PLATFORM=wayland;xcb` in `modules/env.lua`. Without them Qt apps fall back to XWayland | https://wiki.hypr.land/Getting-Started/Master-Tutorial/ |
 | gvfs | Trash, removable drives and network locations in Thunar | https://docs.xfce.org/xfce/thunar/start |
 | piper-tts + a voice, wl-clipboard | `scripts/tts-selection.sh` on `SUPER + T` (`modules/keybinds.lua`) reads the selected text (the primary selection, which needs `middle_click_paste = true` in `modules/misc.lua`) aloud through `pw-play`, and stops when pressed again. The voice defaults to `~/.local/share/piper/en_US-lessac-medium.onnx` (plus its `.onnx.json`); set `TTS_VOICE` / `TTS_SPEED` to change it. AUR on Arch (`piper-tts-bin`) | https://github.com/rhasspy/piper |
+| hyprshot (pulls in grim, slurp, jq, wl-clipboard), hyprpicker | Screenshot binds in `modules/keybinds.lua`: `Print` (region), `ALT + Print` (active window) and `CTRL + Print` (monitor under the cursor) copy to the clipboard (`kbScreenshot*` in `variables.lua`). With `SHIFT` added they also save to `screenshotDir` (`~/Pictures/Screenshots`) as `Screenshot YYYY-MM-DD HH:MM:SS.png`. hyprpicker freezes the screen during region selection | https://github.com/Gustash/Hyprshot |
 | hyprpaper | Only `hyprpaper.conf` (`splash = false`) refers to it; it is not autostarted, awww sets the wallpaper instead | https://wiki.hypr.land/Hypr-Ecosystem/hyprpaper/ |
 
 ```sh
 # Arch / CachyOS
-sudo pacman -S --needed trash-cli bluez-utils qt5-wayland qt6-wayland gvfs hyprpaper wl-clipboard
+sudo pacman -S --needed trash-cli bluez-utils qt5-wayland qt6-wayland gvfs hyprpaper wl-clipboard hyprshot hyprpicker
 yay -S pipeweaver piper-tts-bin   # AUR, or any AUR helper
 v=https://huggingface.co/rhasspy/piper-voices/resolve/v1.0.0/en/en_US/lessac/medium/en_US-lessac-medium.onnx
 mkdir -p ~/.local/share/piper && curl -fL "$v" -o ~/.local/share/piper/en_US-lessac-medium.onnx \

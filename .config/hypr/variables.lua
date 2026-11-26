@@ -90,6 +90,11 @@ return {
   kbLogout                   = { "SUPER + SHIFT + E", "CTRL + ALT + Delete" }, -- Back to the SDDM greeter
   kbReadSelection            = "SUPER + T", -- Reads the selected text aloud; again to stop,
 
-  kbScreenshot               = "SUPER + SHIFT + Print",
+
+  -- Screenshots. These copy to the clipboard; with SHIFT added they also save to screenshotDir
+  -- as "Screenshot YYYY-MM-DD HH:MM:SS.png"
+  kbScreenshotRegion         = "Print",        -- Drag a region; Escape cancels
+  kbScreenshotWindow         = "ALT + Print",  -- Active window
+  kbScreenshotMonitor        = "CTRL + Print", -- Monitor under the cursor
   screenshotDir              = "~/Pictures/Screenshots",
 }
