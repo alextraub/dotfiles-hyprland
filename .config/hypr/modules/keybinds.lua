@@ -109,6 +109,10 @@ screenshot(vars.kbScreenshotRegion, "-z -m region")
 screenshot(vars.kbScreenshotWindow, "-m window -m active")
 screenshot(vars.kbScreenshotMonitor, "-m output -m active")
 
+-- Color picker: click a pixel to copy its hex code (e.g. #1E1E2E); Escape cancels. -r freezes
+-- the other monitors too
+bind(vars.kbColorPicker, hl.dsp.exec_cmd("hyprpicker -a -r"))
+
 
 local zoomBy = require("modules.zoom").zoomBy
 local swapMonitors = require("modules.swap").swapMonitors

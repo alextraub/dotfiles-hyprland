@@ -84,7 +84,7 @@ return {
   kbAudioSettings            = "CTRL + ALT + V",
 
   -- Utilities
-  kbColorPicker              = "SUPER + SHIFT + C",
+  kbColorPicker              = "SUPER + SHIFT + C", -- Copies the clicked pixel's hex code
   kbVolumeMute               = "SUPER + SHIFT + M",
   kbSleep                    = "SUPER + SHIFT + L",
   kbLogout                   = { "SUPER + SHIFT + E", "CTRL + ALT + Delete" }, -- Back to the SDDM greeter
